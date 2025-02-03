@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "font";
+  src: url("../Rubik-Regular.ttf");
+  font-display: optional;
+}
+* {
+  font-family: Unifont, font, monospace;
+  font-size: 2vw;
+}
+
+body  {
+  display: flex;
+  flex-direction: column;
+  background-color: #131313;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+output{
+  margin-left: 10px;
+}
+.block{
+  box-sizing: border-box;
+  width: 70%;
+  margin: 0 auto;
+}
+
+h2 {
+  display: flex; /* Добавляем flex-контейнер */
+  align-items: center; 
+  padding-left: 5px;
+  text-decoration: none;
+  color: #efefef;
+  background: #262626;
+  box-sizing: border-box;
+  margin: 0;
+}
+p {
+  display: flex; /* Добавляем flex-контейнер */
+  align-items: center; /* Центрируем элементы по вертикали */
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: #262626;
+  margin: 0 auto;
+  color: white;
+  padding: 10px;
+
+}
+#log {
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: #262626;
+  margin: 0 auto;
+  color: white;
+  padding: 10px;
+
+}
+.up {
+  border-width: 1px 1px 1px 1px;
+  background: #262626;
+}
+
+#format_select, .slider, #output_quality_input, #output_scale_input {
+  vertical-align: middle;
+}
+
+#selected_file_name{
+  margin-right: 10px;
+  display: none;
+  font-style: italic;
+}
+
+a {
+  margin-right: 10px;
+}
+  
+A:visited {
+ color: white; /* Цвет посещенных ссылок */
+}
+
+A:active {
+ color: white; /* Цвет активных ссылок */
+}
+
+ button {
+  padding: 2px 8px;
+  background: #232323;
+  border: 0;
+  color: white;
+  text-align: center; /* Центрируем текст горизонтально внутри кнопки */
+  display: flex; /* Применяем flexbox */
+  align-items: center; /* Центрируем контент вертикально */
+  border-radius: 17px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+select {
+  padding: 2px 8px;
+  background: #232323;
+  border: 0;
+  color: white;
+  border-radius: 17px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+#selected_file_name{
+  margin-left: 0;
+}
+
+@media only screen and (max-width: 860px) {
+  p {
+    display: flex;
+    
+  }
+  .block_mob{
+    display: block;
+  }
+  .block {
+    width: 100%;
+  }
+  * {
+      font-size: 4vw;
+  }
+
+}

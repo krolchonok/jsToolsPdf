@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>pdf2png</title>
+  <meta name="description"
+    content="Бесплатный, встроенный в браузер, конвертер PDF в изображения с соблюдением конфиденциальности. Поддерживает форматы файлов изображений JPG/JPEG, PNG. Ваши файлы не покидают браузер.">
+  <script src="js/pdf.min-2.5.207.js"></script>
+  <script src="js/jszip.min-3.5.0.js"></script>
+  <script src="js/FileSaver.min-3.5.0.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="home_grid">
+    <div id="params_div_container" class="home_grid_item">
+      <div class="block">
+          <p class="up">pdf2img&nbsp;|&nbsp;<a href="https://ushastoe.ru">ushastoe.ru</a></p>
+          <p>
+            <input id="pdf_input" type="file" accept="application/pdf" style="display:none;">
+            <output id="selected_file_name" for="pdf_input_overlay"></output>
+            <button id="pdf_input_overlay">Выберите PDF</button>
+          </p>
+          <p>
+            <a>Выходной формат изображений:</a>
+            <select id="format_select">
+              <option value="image/png" selected>PNG</option>
+              <option value="image/jpeg">JPEG</option>
+            </select>
+          </p>
+          <p class="block_mob">
+            <a>Коэффициент масштабирования страницы PDF:</a>
+            <input class="slider" id="scale_input" type="range" min="0.5" max="15" value="1" step="0.5">
+            <output id="output_scale_input" for="scale_input">1</output>
+          </p>
+          <p class="block_mob">
+            <a>Множитель качества выходного изображения:</a>
+            <input class="slider" id="quality_input" type="range" min="0" max="1" value="0.8" step="0.1">
+            <output id="output_quality_input" for="quality_input">0.8</output>
+          </p>
+          <p>
+            <a>Вывод в:</a>
+            <select id="format_output_select">
+              <option value="zip" selected>Архив</option>
+              <option value="img">Отдельно каждую фотографию</option>
+            </select>
+          </p>
+          <p>
+            <button id="convert_pdf">Конвертировать</button>
+          </p>
+    </div>
+    <div class="home_grid_item">
+          <div class="block" id="log">
+              <li style="list-style: none;">
+                [ Журнал операций ]
+              </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width: 0px;max-height: 0px;overflow: hidden;">
+    <canvas id="page_canvas" style="border: 0px solid black; direction: ltr;"></canvas>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
