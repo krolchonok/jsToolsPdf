@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер изображений в PNG</title>
+</head>
+<body>
+    <h1>Конвертер изображений в PNG</h1>
+    <input type="file" id="upload" accept="image/*">
+    <br>
+    <canvas id="canvas" style="display:none;"></canvas>
+    <br>
+    <button id="downloadBtn" style="display:none;">Скачать PNG</button>
+	<style>
+		body {
+			text-align: center;
+		}
+	</style>
+    <script>
+        document.getElementById('upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.getElementById('canvas');
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+                    document.getElementById('downloadBtn').style.display = 'block';
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const canvas = document.getElementById('canvas');
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = 'converted.png';
+            link.click();
+        });
+    </script>
+</body>
+</html>
